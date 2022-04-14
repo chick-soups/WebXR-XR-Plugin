@@ -1,0 +1,12 @@
+{
+  "name": "com.puremilk.webxr",
+  "displayName": "WebXR XR Plugin",
+  "version": "0.0.1",
+  "description": "WebXR for Unity ARFoudation",
+  "author": "Shefer Chow",
+  "license": "ISC",
+  "dependencies": {
+    "com.unity.xr.arsubsystems": "4.2.0-pre.12",
+    "com.unity.xr.management": "4.0.1"
+  }
+}
