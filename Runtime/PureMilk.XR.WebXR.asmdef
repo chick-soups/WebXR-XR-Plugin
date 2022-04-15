@@ -1,7 +1,11 @@
 {
     "name": "PureMilk.XR.WebXR",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:92703082f92b41ba80f0d6912de66115",
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
     "includePlatforms": [
         "Editor",
         "WebGL"
@@ -12,6 +16,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "0.9.6-preview",
+            "define": "UNITY_INPUT_SYSTEM"
+        }
+    ],
     "noEngineReferences": false
 }

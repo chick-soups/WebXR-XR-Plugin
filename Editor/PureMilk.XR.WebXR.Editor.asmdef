@@ -1,9 +1,10 @@
 {
-    "name": "PureMilk.WebXR.Editor",
+    "name": "PureMilk.XR.WebXR.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:e40ba710768534012815d3193fa296cb",
-        "GUID:f9fe0089ec81f4079af78eb2287a6163"
+        "GUID:f9fe0089ec81f4079af78eb2287a6163",
+        "GUID:8d8741aae127c47ed9a85dd8c93906df"
     ],
     "includePlatforms": [
         "Editor"

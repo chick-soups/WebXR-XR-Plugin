@@ -1,5 +1,5 @@
 {
-  "name": "com.puremilk.webxr",
+  "name": "com.puremilk.xr.webxr",
   "displayName": "WebXR XR Plugin",
   "version": "0.0.1",
   "description": "WebXR for Unity ARFoudation",
