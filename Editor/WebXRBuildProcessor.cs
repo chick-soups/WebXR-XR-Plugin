@@ -13,7 +13,7 @@ namespace PureMilk.XR.WebXR.Editor
         {
             get
             {
-                return "PureMilk.XR.WebXR.Editor.WebXRSettings";
+                return "PureMilk.XR.WebXR.WebXRSettings";
             }
         }
         public override void OnPreprocessBuild(BuildReport report)

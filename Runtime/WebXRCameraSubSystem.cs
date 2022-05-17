@@ -9,7 +9,7 @@ namespace PureMilk.XR.WebXR
     [Preserve]
     public class WebXRCameraSubSystem : XRCameraSubsystem
     {
-        public const string k_SubSystemId = "WebXR-Camera";
+        public const string k_SubsystemId = "WebXR-Camera";
         class WebXRProvider : Provider
         {
 
@@ -20,7 +20,7 @@ namespace PureMilk.XR.WebXR
         {
             XRCameraSubsystemCinfo cinfo = new XRCameraSubsystemCinfo()
             {
-                id = k_SubSystemId,
+                id = k_SubsystemId,
                 providerType = typeof(WebXRProvider),
                 subsystemTypeOverride = typeof(WebXRCameraSubSystem),
                 supportsAverageBrightness = false,
@@ -41,7 +41,7 @@ namespace PureMilk.XR.WebXR
             };
             if (!XRCameraSubsystem.Register(cinfo))
             {
-                Debug.LogError($"false to regiser {k_SubSystemId} subsystem");
+                Debug.LogError($"false to regiser {k_SubsystemId} subsystem");
             }
         }
     }
