@@ -1,0 +1,10 @@
+{
+    "name": "WebXRUnity",
+    "version": "1.0.0",
+    "libraryName": "WebXRUnity",
+    "inputs": [
+    {
+        "id": "WebXR-Input"
+    }]
+}
+
