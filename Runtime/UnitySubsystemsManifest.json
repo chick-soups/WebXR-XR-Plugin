@@ -1,7 +1,7 @@
 {
-    "name": "WebXRUnity",
+    "name": "UnityNative",
     "version": "1.0.0",
-    "libraryName": "WebXRUnity",
+    "libraryName": "UnityNative",
     "inputs": [
     {
         "id": "WebXR-Input"
