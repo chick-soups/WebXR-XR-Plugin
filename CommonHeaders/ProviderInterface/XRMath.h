@@ -33,7 +33,10 @@ struct XRVector2 : public UnityXRVector2
 {
 	XRVector2( UnityXRVector2 v ) : UnityXRVector2( v ) {}
 
-	XRVector2( float x = 0.0f, float y = 0.0f ) : UnityXRVector2 { x, y } { }
+	XRVector2( float _x = 0.0f, float _y = 0.0f ){
+		x=_x;
+		y=_y;
+	 }
 };
 
 

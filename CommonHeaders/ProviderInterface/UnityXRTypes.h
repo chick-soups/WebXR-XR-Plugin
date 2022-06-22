@@ -12,6 +12,7 @@ enum { kUnityXRStringSize = kUnitySubsystemsStringSize };
 /// Simple 2-Element Float Vector
 typedef struct UnityXRVector2
 {
+    public:
     /// X component of the vector.
     float x;
 
