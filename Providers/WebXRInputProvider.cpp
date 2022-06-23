@@ -1,4 +1,3 @@
-#pragma once
 #include "WebXRInputProvider.h"
 
 UnitySubsystemErrorCode UNITY_INTERFACE_API WebXRInputProvider::Tick(UnitySubsystemHandle handle, void *userData, UnityXRInputUpdateType updateType)

@@ -2,7 +2,8 @@
 
 #include "UnityXRTypes.h"
 #include <limits>
-
+# include <math.h>
+#include <stdlib.h>
 #ifdef __linux__
 #include <cmath>
 #endif
@@ -75,7 +76,13 @@ struct XRVector4 : UnityXRVector4
 {
 	XRVector4(UnityXRVector4 v) : UnityXRVector4(v) {}
 
-	XRVector4(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f) : UnityXRVector4{x, y, z, w} {}
+	XRVector4(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f)
+	{
+		this->x = x;
+		this->y = y;
+		this->z = z;
+		this->w = w;
+	}
 
 	XRVector4 &operator+=(const XRVector4 &v);
 	XRVector4 &operator-=(const XRVector4 &v);
@@ -111,10 +118,13 @@ inline XRVector4 operator*(const float s, const XRVector4 &inV) { return XRVecto
 
 struct XRQuaternion : public UnityXRVector4
 {
-	XRQuaternion(UnityXRVector4 v) : UnityXRVector4{v} {}
-
-	XRQuaternion(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f) : UnityXRVector4{x, y, z, w} {}
-
+	XRQuaternion(UnityXRVector4 v) : UnityXRVector4(v) {}
+	XRQuaternion(float x = 0.0f, float y = 0.0f, float z = 0.0f, float w = 0.0f) {
+		this->x=x;
+		this->y=y;
+		this->z=z;
+		this->w=w;
+	}
 	friend float SqrMagnitude(const XRQuaternion &q);
 	friend float Magnitude(const XRQuaternion &q);
 	friend XRQuaternion Normalize(const XRQuaternion &q)
@@ -233,7 +243,7 @@ inline bool CompareApproximately(const XRVector3 &inV0, const XRVector3 &inV1, c
 inline bool CompareApproximately(float f0, float f1, float epsilon = 0.000001F)
 {
 	float dist = (f0 - f1);
-	dist = std::abs(dist);
+	dist= abs(dist);
 	return dist <= epsilon;
 }
 

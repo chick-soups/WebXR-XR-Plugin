@@ -1,4 +1,3 @@
-#pragma once
 #include "WebXRInputLifeCycleProvider.h"
 #include "WebXRInputProvider.h"
 
