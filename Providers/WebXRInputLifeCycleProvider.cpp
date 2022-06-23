@@ -3,7 +3,7 @@
 
 UnitySubsystemErrorCode UNITY_INTERFACE_API WebXRInputLifeCycleProvider::Initialize(UnitySubsystemHandle handle, void *data)
 {
-    UnityXRInputProvider inputProvider{
+    UnityXRInputProvider inputProvider(
         nullptr,
         &WebXRInputProvider::Tick,
         &WebXRInputProvider::FillDeviceDefinition,
@@ -18,12 +18,14 @@ UnitySubsystemErrorCode UNITY_INTERFACE_API WebXRInputLifeCycleProvider::Initial
         &WebXRInputProvider::QueryTrackingOriginMode,
         &WebXRInputProvider::QuerySupportedTrackingOriginModes,
         &WebXRInputProvider::HandleSetTrackingOriginMode,
-        &WebXRInputProvider::TryGetDeviceStateAtTime};
+        &WebXRInputProvider::TryGetDeviceStateAtTime);
     s_XrInput->RegisterInputProvider(handle, &inputProvider);
 }
 
 UnitySubsystemErrorCode UNITY_INTERFACE_API WebXRInputLifeCycleProvider::Start(UnitySubsystemHandle handle, void *data)
 {
+    UnitySubsystemErrorCode success(kUnitySubsystemErrorCodeSuccess);
+    return success;
 }
 
 void UNITY_INTERFACE_API WebXRInputLifeCycleProvider::Stop(UnitySubsystemHandle handle, void *data)

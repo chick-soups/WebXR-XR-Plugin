@@ -2,7 +2,7 @@
 
 #include "UnityXRTypes.h"
 #include <limits>
-# include <math.h>
+#include <math.h>
 #include <stdlib.h>
 #ifdef __linux__
 #include <cmath>
