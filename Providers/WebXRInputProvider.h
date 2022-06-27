@@ -1,5 +1,5 @@
 #pragma once
-#include "../CommonHeaders/ProviderInterface/IUnityXRInput.h";
+#include "../CommonHeaders/ProviderInterface/IUnityXRInput.h"
 class WebXRInputProvider
 {
 public:

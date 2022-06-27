@@ -1,6 +1,5 @@
-#pragma once
-#include "../../CommonHeaders/ProviderInterface/IUnityInterface.h";
-#include "../../Providers/WebXRInputLifeCycleProvider.h";
+#include "../../CommonHeaders/ProviderInterface/IUnityInterface.h"
+#include "../../Providers/WebXRInputLifeCycleProvider.h"
 
 
 extern "C" void UNITY_INTERFACE_EXPORT UNITY_INTERFACE_API
