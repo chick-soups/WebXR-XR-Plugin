@@ -64,7 +64,7 @@ namespace PureMilk.XR.WebXR
         /// <returns>`True` if the session subsystem was successfully created, otherwise `false`.</returns>
         public override bool Initialize()
         {
-#if UNITY_WEBGL //&& !UNITY_EDITOR
+#if UNITY_WEBGL && !UNITY_EDITOR
             CreateSubsystem<XRSessionSubsystemDescriptor, XRSessionSubsystem>(s_SessionSubsystemDescriptors, WebXRSessionSubSystem.k_SubsystemId);
             CreateSubsystem<XRCameraSubsystemDescriptor, XRCameraSubsystem>(s_CameraSubsystemDescriptors, WebXRCameraSubSystem.k_SubsystemId);
             CreateSubsystem<XRDepthSubsystemDescriptor, XRDepthSubsystem>(s_DepthSubsystemDescriptors, WebXRDepthSubsystem.k_SubsystemId);
@@ -114,11 +114,7 @@ namespace PureMilk.XR.WebXR
             DestroySubsystem<XRPlaneSubsystem>();
             DestroySubsystem<XRAnchorSubsystem>();
             DestroySubsystem<XRRaycastSubsystem>();
-            DestroySubsystem<XRImageTrackingSubsystem>();
             DestroySubsystem<XRInputSubsystem>();
-            DestroySubsystem<XRFaceSubsystem>();
-            DestroySubsystem<XREnvironmentProbeSubsystem>();
-            DestroySubsystem<XROcclusionSubsystem>();
             DestroySubsystem<XRSessionSubsystem>();
 #endif
             return true;

@@ -206,8 +206,12 @@ namespace PureMilk.XR.WebXR
             XRSessionSubsystemDescriptor.RegisterDescriptor(new XRSessionSubsystemDescriptor.Cinfo()
             {
                 id = k_SubsystemId,
-                providerType = typeof(WebXRProvider),
+                #if UNITY_2020_2_OR_NEWER
+                providerType = typeof(WebXRSessionSubSystem.WebXRProvider),
                 subsystemTypeOverride = typeof(WebXRSessionSubSystem),
+#else
+                subsystemImplementationType = typeof(WebXRSessionSubSystem),
+#endif
                 supportsInstall = false,
                 supportsMatchFrameRate = true
             });

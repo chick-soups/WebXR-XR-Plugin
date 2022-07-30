@@ -21,8 +21,12 @@ namespace PureMilk.XR.WebXR
             XRCameraSubsystemCinfo cinfo = new XRCameraSubsystemCinfo()
             {
                 id = k_SubsystemId,
-                providerType = typeof(WebXRProvider),
+#if UNITY_2020_2_OR_NEWER
+                providerType = typeof(WebXRCameraSubSystem.WebXRProvider),
                 subsystemTypeOverride = typeof(WebXRCameraSubSystem),
+#else
+                implementationType = typeof(WebXRCameraSubSystem),
+#endif
                 supportsAverageBrightness = false,
                 supportsAverageColorTemperature = false,
                 supportsColorCorrection = false,

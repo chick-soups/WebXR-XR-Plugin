@@ -21,8 +21,12 @@ namespace PureMilk.XR.WebXR
             XRRaycastSubsystemDescriptor.Cinfo cinfo = new XRRaycastSubsystemDescriptor.Cinfo()
             {
                 id = k_SubsystemId,
-                providerType = typeof(WebXRProvider),
+#if UNITY_2020_2_OR_NEWER
+                providerType = typeof(WebXRRaycastSubSystem.WebXRProvider),
                 subsystemTypeOverride = typeof(WebXRRaycastSubSystem),
+#else
+                subsystemImplementationType = typeof(WebXRRaycastSubSystem),
+#endif
                 supportsViewportBasedRaycast = true,
                 supportsWorldBasedRaycast = true,
                 supportedTrackableTypes = (TrackableType.Planes & ~TrackableType.PlaneWithinInfinity) |
