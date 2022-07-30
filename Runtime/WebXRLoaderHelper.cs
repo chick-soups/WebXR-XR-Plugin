@@ -16,13 +16,8 @@ namespace PureMilk.XR.WebXR
         static List<XRDepthSubsystemDescriptor> s_DepthSubsystemDescriptors = new List<XRDepthSubsystemDescriptor>();
         static List<XRPlaneSubsystemDescriptor> s_PlaneSubsystemDescriptors = new List<XRPlaneSubsystemDescriptor>();
         static List<XRAnchorSubsystemDescriptor> s_AnchorSubsystemDescriptors = new List<XRAnchorSubsystemDescriptor>();
-        static List<XRRaycastSubsystemDescriptor> s_RaycastSubsystemDescriptors = new List<XRRaycastSubsystemDescriptor>();
-        static List<XRImageTrackingSubsystemDescriptor> s_ImageTrackingSubsystemDescriptors = new List<XRImageTrackingSubsystemDescriptor>();
         static List<XRInputSubsystemDescriptor> s_InputSubsystemDescriptors = new List<XRInputSubsystemDescriptor>();
-        static List<XRFaceSubsystemDescriptor> s_FaceSubsystemDescriptors = new List<XRFaceSubsystemDescriptor>();
-        static List<XREnvironmentProbeSubsystemDescriptor> s_EnvironmentProbeSubsystemDescriptors = new List<XREnvironmentProbeSubsystemDescriptor>();
-        static List<XROcclusionSubsystemDescriptor> s_OcclusionSubsystemDescriptors = new List<XROcclusionSubsystemDescriptor>();
-
+        static List<XRRaycastSubsystemDescriptor> s_RaycastSubsystemDescriptors=new List<XRRaycastSubsystemDescriptor>();
         /// <summary>
         /// The `XRSessionSubsystem` whose lifecycle is managed by this loader.
         /// </summary>
@@ -58,55 +53,25 @@ namespace PureMilk.XR.WebXR
         /// </summary>
         /// <value>The XR raycast subsystem instance.</value>
         public XRRaycastSubsystem raycastSubsystem => GetLoadedSubsystem<XRRaycastSubsystem>();
-
-        /// <summary>
-        /// The `XRImageTrackingSubsystem` whose lifecycle is managed by this loader.
-        /// </summary>
-        /// <value>The XR image tracking subsystem instance.</value>
-        public XRImageTrackingSubsystem imageTrackingSubsystem => GetLoadedSubsystem<XRImageTrackingSubsystem>();
-
         /// <summary>
         /// The `XRInputSubsystem` whose lifecycle is managed by this loader.
         /// </summary>
         /// <value>The XR input subsystem instance.</value>
         public XRInputSubsystem inputSubsystem => GetLoadedSubsystem<XRInputSubsystem>();
-
-        /// <summary>
-        /// The `XRFaceSubsystem` whose lifecycle is managed by this loader.
-        /// </summary>
-        /// <value>The XR face subsystem instance.</value>
-        public XRFaceSubsystem faceSubsystem => GetLoadedSubsystem<XRFaceSubsystem>();
-
-        /// <summary>
-        /// The `XREnvironmentProbeSubsystem` whose lifecycle is managed by this loader.
-        /// </summary>
-        /// <value>The XR environment probe subsystem instance.</value>
-        public XREnvironmentProbeSubsystem environmentProbeSubsystem => GetLoadedSubsystem<XREnvironmentProbeSubsystem>();
-
-        /// <summary>
-        /// The `XROcclusionSubsystem` whose lifecycle is managed by this loader.
-        /// </summary>
-        /// <value>The XR occlusion subsystem instance.</value>
-        public XROcclusionSubsystem occlusionSubsystem => GetLoadedSubsystem<XROcclusionSubsystem>();
-
         /// <summary>
         /// Initializes the loader.
         /// </summary>
         /// <returns>`True` if the session subsystem was successfully created, otherwise `false`.</returns>
         public override bool Initialize()
         {
-#if UNITY_WEBGL && !UNITY_EDITOR
+#if UNITY_WEBGL //&& !UNITY_EDITOR
             CreateSubsystem<XRSessionSubsystemDescriptor, XRSessionSubsystem>(s_SessionSubsystemDescriptors, WebXRSessionSubSystem.k_SubsystemId);
             CreateSubsystem<XRCameraSubsystemDescriptor, XRCameraSubsystem>(s_CameraSubsystemDescriptors, WebXRCameraSubSystem.k_SubsystemId);
-            //CreateSubsystem<XRDepthSubsystemDescriptor, XRDepthSubsystem>(s_DepthSubsystemDescriptors, "ARCore-Depth");
-            //CreateSubsystem<XRPlaneSubsystemDescriptor, XRPlaneSubsystem>(s_PlaneSubsystemDescriptors, "ARCore-Plane");
-            //CreateSubsystem<XRAnchorSubsystemDescriptor, XRAnchorSubsystem>(s_AnchorSubsystemDescriptors, "ARCore-Anchor");
+            CreateSubsystem<XRDepthSubsystemDescriptor, XRDepthSubsystem>(s_DepthSubsystemDescriptors, WebXRDepthSubsystem.k_SubsystemId);
+            CreateSubsystem<XRPlaneSubsystemDescriptor, XRPlaneSubsystem>(s_PlaneSubsystemDescriptors, WebXRPlaneSubsystem.k_SubsystemId);
+            CreateSubsystem<XRAnchorSubsystemDescriptor, XRAnchorSubsystem>(s_AnchorSubsystemDescriptors, WebXRAnchorSubsystem.k_SubsystemId);
             CreateSubsystem<XRRaycastSubsystemDescriptor, XRRaycastSubsystem>(s_RaycastSubsystemDescriptors, WebXRRaycastSubSystem.k_SubsystemId);
-            //CreateSubsystem<XRImageTrackingSubsystemDescriptor, XRImageTrackingSubsystem>(s_ImageTrackingSubsystemDescriptors, "ARCore-ImageTracking");
             CreateSubsystem<XRInputSubsystemDescriptor, XRInputSubsystem>(s_InputSubsystemDescriptors, "WebXR-Input");
-            //CreateSubsystem<XRFaceSubsystemDescriptor, XRFaceSubsystem>(s_FaceSubsystemDescriptors, "ARCore-Face");
-            //CreateSubsystem<XREnvironmentProbeSubsystemDescriptor, XREnvironmentProbeSubsystem>(s_EnvironmentProbeSubsystemDescriptors, "ARCore-EnvironmentProbe");
-            //CreateSubsystem<XROcclusionSubsystemDescriptor, XROcclusionSubsystem>(s_OcclusionSubsystemDescriptors, "ARCore-Occlusion");
 
             if (sessionSubsystem == null)
             {
